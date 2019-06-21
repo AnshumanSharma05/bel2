@@ -29,16 +29,17 @@ class App extends Component {
     this.state={
       route:"signin",
       isSignedIn:false
+      
     }
   }
   onRouteChange=(route)=>{
-    if(route==="signout"){
-      this.setState({isSignedIn:false})
+        if(route==="signout"){
+          this.setState({isSignedIn:false})
 
-    }else if(route==="home"){
-      this.setState({isSignedIn:true})
-    }
-    this.setState({route:route})
+        }else if(route==="home"){
+          this.setState({isSignedIn:true})
+        }
+        this.setState({route:route})
   }
 
   render(){
@@ -49,16 +50,26 @@ class App extends Component {
           
         />
 
-        <Navigation isSignedIn={ this.state.isSignedIn } onRouteChange={this.onRouteChange}/>
-        {this.state.route==="signin"
+        <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
+        {this.state.route==="home"
         ?<div>
-          <Logo2/>
-          <Signin onRouteChange={this.onRouteChange}/>
-         </div> 
-        : <div>
             <Logo/>
             <DownloadLinkForm/>
-        </div>}
+        </div>
+        : (
+          this.state.route==="signin" 
+          ? <div>
+              <Logo2/>
+              <Signin onRouteChange={this.onRouteChange}/>
+             </div>   
+          : <div>
+              <Logo2/>
+              <Signin onRouteChange={this.onRouteChange}/>
+             </div> 
+          )
+        
+
+      }
         </div>
     );
   }
