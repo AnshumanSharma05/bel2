@@ -8,7 +8,7 @@ const DownloadLinkForm =()=>{
 					{"Click to Download the pdf"}
 					</p>
 					<div className="pa4 br3 ">
-						<button className="w-30 grow f3 link ph3 pv2 dib white bg-light-purple">Download</button>
+						<button className="w-30 grow f3 link ph3 pv2 dib white bg-light-purple pointer">Download</button>
 					</div>	
 				</div>
 
