@@ -15,7 +15,7 @@ class Signin extends React.Component{
 		this.setState({signInPassword:event.target.value})
 	}
 	onSubmitSignIn=()=>{
-		fetch("http://localhost:3000/signin",{
+		fetch("http://localhost:3000/Signin",{
 			method:"post",
 			headers:{"Content-Type":"application/json"},
 			body:JSON.stringify({
@@ -24,15 +24,15 @@ class Signin extends React.Component{
 			})
 		})
 		.then(response => response.json())
-		.then(data=>{
-			if(data==="success"){
+		.then(user=>{
+			if(user.id){
 				this.props.onRouteChange("home")
 			}
 		})
 		
 	}
 	render(){
-		const { onRouteChange }=this.props;
+		
 		return(
 			<article className="br2 ba dark-gray b--black-10 mv4 w-100 w-50-m w-25-l mw5 center">	
 			<main className="pa4 black-80">
